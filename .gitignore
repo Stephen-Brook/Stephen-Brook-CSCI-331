@@ -1,0 +1,25 @@
+# Base web dev ignores
+# (from GitHub’s Web.gitignore template)
+*.log
+*.sql
+*.sqlite
+
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# PHP-specific
+vendor/
+composer.lock
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Other editor/IDE files (optional, but useful for class projects)
+.vscode/
+.idea/
+*.swp
