@@ -47,6 +47,13 @@ function conversion() {
    const hasF = fString != "";
    const hasC = cString != "";
 
+   //if the user has a temperature in C and F (this likely means they just hit the button)
+   if (hasF && hasC) {
+      fIn.value="";
+      cIn.value="";
+      updateWeatherIcon(null);
+   }
+
    //if the user has not entered a temperature
    if (!hasF && !hasC) {
       message.textContent = "Enter a temperature to convert";
