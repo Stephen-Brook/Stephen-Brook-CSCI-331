@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Apparel Order Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            font-family: system-ui, San Fransisco, Segoe UI, Roboto, sans-serif;
+            margin: 2rem;
+            line-height: 1.4;
+        }
+
+        fieldset {
+            border: 1px solid grey;
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        legend {
+            padding: 0 .25rem;
+        }
+
+        label {
+            display: block;
+            margin: .25rem 0;
+        }
+
+        .inline {
+            display: inline-block;
+            margin-right: 1rem;
+        }
+
+        button {
+            padding: .5rem 1rem;
+        }
+
+        .note {
+            font-size: .9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Company Apparel Request</h1>
+    <p class="note">Choose an HTTP method below to prove the viewer works with both GET and POST.</p>
+
+    <form id="orderForm" action="form-viewer.php" method="post">
+        <fieldset>
+            <legend>Submit Method</legend>
+            <label for="method">Send form using:</label>
+            <select id="method" name="_methodChooser">
+                <option value="post" selected>POST</option>
+                <option value="get">GET</option>
+            </select>
+        </fieldset>
+
+        <!-- extra input types (i pick text inputs) -->
+        <fieldset>
+            <legend>Contact (my special choice)</legend>
+            <label for="full_name">Full Name</label>
+            <input id="full_name" name="full_name" type="text" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+        </fieldset>
+
+        <!-- radio, > 3 options -->
+        <fieldset>
+            <legend>Product (radio – 3 choices)</legend>
+            <label class="inline"><input type="radio" name="product" value="hoodie" required /> Hoodie</label>
+            <label class="inline"><input type="radio" name="product" value="crewneck" /> Crewneck</label>
+            <label class="inline"><input type="radio" name="product" value="tshirt" /> T-Shirt</label>
+        </fieldset>
+
+        <!-- more radio because why not its fun -->
+        <fieldset>
+            <legend>Color (radio)</legend>
+            <label class="inline"><input type="radio" name="color" value="blue" required /> Blue</label>
+            <label class="inline"><input type="radio" name="color" value="grey" /> Grey</label>
+        </fieldset>
+
+        <!-- select one, > 3 options-->
+        <fieldset>
+            <legend>Size (select one - 5 choices)</legend>
+            <label for="size">Size</label>
+            <select id="size" name="size" required>
+                <option value="" disabled selected>Select size…</option>
+                <option value="large">X-Small</option>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+                <option value="large">X-Large</option>
+            </select>
+        </fieldset>
+
+        <!-- checkbox, > 3 options -->
+        <fieldset>
+            <legend>Extras (checkbox – pick any)</legend>
+            <label class="inline"><input type="checkbox" name="extras[]" value="front_logo" /> Front logo</label>
+            <label class="inline"><input type="checkbox" name="extras[]" value="back_logo" /> Back logo</label>
+            <label class="inline"><input type="checkbox" name="extras[]" value="back_logo" /> Sleeve logo</label>
+            <label class="inline"><input type="checkbox" name="extras[]" value="rush" /> Rush order</label>
+        </fieldset>
+
+        <!-- select multiple, submitted as an array -->
+        <fieldset>
+            <legend>Charge Departments (select multiple)</legend>
+            <label for="departments">Hold Ctrl/Cmd to select multiple</label>
+            <select id="departments" name="departments[]" multiple size="4">
+                <option value="marketing">Marketing</option>
+                <option value="engineering">Engineering</option>
+                <option value="sales">Sales</option>
+                <option value="hr">HR</option>
+            </select>
+        </fieldset>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        const methodSel = document.getElementById('method');
+        const form = document.getElementById('orderForm');
+        methodSel.addEventListener('change', () => {
+            form.method = methodSel.value === 'get' ? 'get' : 'post';
+        });
+    </script>
+</body>
+
+</html>

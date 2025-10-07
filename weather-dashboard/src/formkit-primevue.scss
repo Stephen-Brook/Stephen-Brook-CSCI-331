@@ -1,0 +1,19 @@
+.formkit-outer {
+  padding-bottom: 0.8rem;
+  ul {
+    margin-block-start: 2px;
+    margin-block-end: 2px;
+  }
+
+}
+
+.formkit-message {
+  color: #ef9a9a;
+  font-weight: 600;
+}
+
+.formkit-messages,
+.formkit-outer ul {
+  padding: 0;
+  list-style: none;
+}
