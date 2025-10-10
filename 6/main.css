@@ -1,8 +1,12 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    max-width: 800px;
-    min-width: 280px;
+    display: flex-row;
     margin: auto;
+    max-width: 1000px;
+}
+
+h1 {
+    text-align: center;
 }
 
 #btns {
@@ -10,19 +14,20 @@ body {
 }
 
 #apiData {
-    border: 2px solid dimgray;
-    background-color: aliceblue;
-    padding: 2em;
+    border: 2px solid black;
+    background-color: lightblue;
+    padding: 1em;
     margin: 20px auto;
-    height: 190px;
     display: flex;
+    width: 350px;
+    height: 250px;
     flex-direction: column;
 }
 
 img.user {
-    border: 10px solid dimgray;
-    background-color: dimgrey;
-    border-radius: 40%;
+    border: 5px solid black;
+    background-color: black;
+    border-radius: 30%;
     width: 128px;
     height: 128px;
     display: block;
@@ -30,36 +35,48 @@ img.user {
 }
 
 h2.user {
-    color: dimgray;
     text-align: center;
     margin: 5px;
 }
 
-/* Buttons */
 .btn {
     border: 0;
     padding: 0.6em 1em;
     border-radius: 8px;
-    background: #0d6efd;
-    color: #fff;
+    background: blue;
+    color: white;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.05s ease-in-out, box-shadow 0.2s ease;
-    box-shadow: 0 4px 10px rgba(13, 110, 253, 0.25);
 }
 
 .btn:hover {
-    transform: translateY(-1px);
+    color: lightblue;
 }
 
-/* Small meta details under the name */
 p.meta {
-    color: #333;
     text-align: center;
     margin: 8px 0 0;
 }
 
-/* Table styles for add.php page */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 18px 0;
+}
+
+.notice {
+    padding: 10px 12px;
+    background: lightgreen;
+    border: 1px solid green;
+    border-radius: 8px;
+}
+
+.navlink {
+    text-decoration: none;
+}
+
 .table-wrap {
     overflow-x: auto;
     margin-top: 24px;
@@ -68,26 +85,23 @@ p.meta {
 table.pretty {
     width: 100%;
     border-collapse: collapse;
-    background: #fff;
-    border: 1px solid #ddd;
+    border: 1px solid black;
 }
 
 table.pretty thead th {
-    background: #f5f7fb;
-    color: #333;
     text-align: left;
     padding: 12px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid black;
 }
 
 table.pretty tbody td {
     padding: 10px 12px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid black;
     vertical-align: middle;
 }
 
 table.pretty tbody tr:nth-child(even) {
-    background: #fafafa;
+    background: lightgrey;
 }
 
 table.pretty img.thumb {

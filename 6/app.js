@@ -1,4 +1,3 @@
-// js/app.js
 const getBtn = document.getElementById("getBtn");
 const apiData = document.getElementById("apiData");
 
@@ -6,7 +5,6 @@ let url = "https://randomuser.me/api";
 
 getBtn.addEventListener("click", getUser);
 
-// fetch first user on load
 getUser();
 
 function getUser() {
@@ -25,7 +23,6 @@ function decodeData(response) {
 function success(userData) {
     const u = userData.results[0];
 
-    // show a quick card
     apiData.innerHTML = `
     <img class="user" src="${u.picture.large}" alt="random user">
     <h2 class="user">Meet ${u.name.first} ${u.name.last}</h2>
@@ -36,7 +33,7 @@ function success(userData) {
     </p>
   `;
 
-    // build hidden form fields for PHP add.php
+    //hidden form fields for PHP add.php
     const apiform = document.querySelector("form");
     apiform.innerHTML = `
     <input type="hidden" name="first" value="${u.name.first}"/>

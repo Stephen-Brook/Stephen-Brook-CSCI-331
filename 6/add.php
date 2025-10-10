@@ -11,7 +11,7 @@ try {
     $conn = new mysqli($dbHost, $dbUser, $dbPass);
     $conn->set_charset('utf8mb4');
 
-    // Ensure we are using db05
+    //ensure we are using db05
     $conn->query("CREATE DATABASE IF NOT EXISTS `$dbName` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
     $conn->select_db($dbName);
 
@@ -31,12 +31,10 @@ try {
     ";
     $conn->query($createSql);
 
-    // Basic sanity: only insert if required fields exist
     $first   = $_POST['first']   ?? null;
     $last    = $_POST['last']    ?? null;
     $country = $_POST['country'] ?? null;
 
-    // Optional extras (satisfy the "2 more fields" requirement)
     $city    = $_POST['city']    ?? null;
     $email   = $_POST['email']   ?? null;
     $age     = isset($_POST['age']) ? (int)$_POST['age'] : null;
@@ -45,6 +43,7 @@ try {
     $justAdded = false;
 
     if ($first && $last && $country) {
+      //sanatize the input, thanks carson :)
         $stmt = $conn->prepare("
             INSERT INTO `$table` (first, last, country, city, email, age, picture)
             VALUES (?, ?, ?, ?, ?, ?, ?)
@@ -55,7 +54,7 @@ try {
         $justAdded = true;
     }
 
-    // Pull all rows to display
+    //pull all rows to display
     $rows = [];
     $res = $conn->query("SELECT id, first, last, country, city, email, age, picture, created_at FROM `$table` ORDER BY id DESC");
     while ($r = $res->fetch_assoc()) {
@@ -75,19 +74,7 @@ try {
   <meta charset="utf-8">
   <title>Saved Random Users</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Reuse your site CSS -->
-  <link rel="stylesheet" href="../css/main.css">
-  <style>
-    body { max-width: 1000px; }
-    header {
-      display:flex; align-items:center; justify-content:space-between;
-      gap: 12px; margin: 18px 0;
-    }
-    .notice {
-      padding: 10px 12px; background:#e7f7ec; color:#0a5b2a; border:1px solid #bde3c8; border-radius:8px;
-    }
-    .navlink { text-decoration:none; }
-  </style>
+  <link rel="stylesheet" href="./main.css">
 </head>
 <body>
   <header>
@@ -96,9 +83,9 @@ try {
   </header>
 
   <?php if ($justAdded): ?>
-    <p class="notice">✅ User <strong><?=htmlspecialchars($first)?> <?=htmlspecialchars($last)?></strong> from <strong><?=htmlspecialchars($country)?></strong> was added.</p>
+    <p class="notice">User <strong><?=htmlspecialchars($first)?> <?=htmlspecialchars($last)?></strong> from <strong><?=htmlspecialchars($country)?></strong> was added.</p>
   <?php else: ?>
-    <p class="notice">ℹ️ Submit the form from the homepage to add a user.</p>
+    <p class="notice">Submit the form from the homepage to add a user.</p>
   <?php endif; ?>
 
   <div class="table-wrap">
