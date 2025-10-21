@@ -70,6 +70,7 @@ Include:
 
 ## What I Fixed and What I Finished
 - In ```gallery.html``` the style sheet was not linked correctly
+- In ```gallery.html``` the navigational link for the ```Gallery``` page linked to the ```./styles/grid.css``` file incorrectly. Updated it to link to ```./gallery.html```
 - In ```./styles/flex.css```
   - Styled for mobile first, media queries for tablet and desktop
   - Added styling to header, main, and footer
