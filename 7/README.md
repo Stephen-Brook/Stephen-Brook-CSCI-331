@@ -67,3 +67,24 @@ Include:
 - If any parts are **incomplete**, **comment out** broken code and add  
   ```css
   /* TODO: explain what you would finish here */
+
+## What I Fixed and What I Finished
+- In ```gallery.html``` the style sheet was not linked correctly
+- In ```./styles/flex.css```
+  - Styled for mobile first, media queries for tablet and desktop
+  - Added styling to header, main, and footer
+  - Added styling to the images
+  - Added styling to the navigational menu (fley layout)
+  - Added styling to the hero, class
+  - Added styling to the cards and card classes (flex)
+  - Media query ≥ 601px = tablet, change styling for cards and card classes
+  - Media query ≥ 1025px = desktop, change styling for cards and card classes
+- In ```./styles/grid.css```
+  - Styled for mobile first, media queries for tablet and desktop
+  - Added styling to header, main, and footer
+  - Added styling to the images
+  - Added styling to the navigational menu
+  - Added styling for the gallery class (grid)
+  - Added styling to the figure and figcaptions
+  - Media query ≥ 601px = tablet, change styling for the gallery class
+  - Media query ≥ 1025px = desktop, change styling for the gallery class
